@@ -1,0 +1,52 @@
+{
+  "name": "SMS BOMBER",
+  "description": "The application for sending same msg to the same person multiple times without entering msg every time",
+  "type": "certified",
+  "launch_path": "/27.html",
+ "developer": {
+    "name": "Rakhy(rakhy.in@gmail.com)",
+    "url": "http://www.rakhy.tk"
+  },
+  "permissions": {
+    "sms":{},
+    "storage":{},
+    "contacts":{ "access": "readonly" },
+    "settings":{ "access": "readonly" },
+    "audio-channel-notification":{},
+    "desktop-notification":{}
+  },
+  "locales": {
+    "en-US": {
+      "name": "SMS BOMBER",
+      "description": "The application for sending same msg to the same person multiple times without entering msg every time"
+    }
+  },
+  "default_locale": "en-US",
+  "icons": {
+    "128": "icon.png"
+  },
+  "orientation": "portrait-primary",
+  "activities": {
+    "new": {
+      "filters": {
+        "type": "websms/sms",
+        "mob": {
+          "pattern":"[\\w\\s+#*().-]{0,50}"
+        }
+       },
+      "disposition": "window"
+    },
+    "share": {
+      "filters": {
+        "type": ["image/*", "audio/*", "video/*"],
+        "number": 1
+       },
+      "disposition": "window",
+      "returnValue": true
+    }
+  },
+  "messages": [
+     { "sms-received": "/index.html" },
+     { "notification": "/index.html" }
+  ]
+}
